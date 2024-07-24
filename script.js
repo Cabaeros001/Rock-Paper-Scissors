@@ -2,30 +2,34 @@ const options = ["Paper", "Rock", "Scissors", "Paper"]
 let pointsComputer = 0;
 let pointsUser = 0;
 
-let randomOption = options[Math.floor(Math.random()*3)];
-console.log("Computer has " + randomOption + " selected.");
+function() {let randomOption = options[Math.floor(Math.random()*3)];
+console.log("Computer has " + randomOption + " selected.");}
 
-let selectedOption = options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
+function PlayerOption() {
+let userOption = options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
+console.log("Player has " + userOption + " selected.");
+}
 
 
 function chooseWinner() {
-    if(randomOption === selectedOption) {
-        console.log("Is a macht!")
-    } else if (randomOption === options[0] && userOption === options[randomOption + 1]) {
-        console.log("Computer Win!");
-        pointsComputer++;
+    if(randomOption === userOption) {
+        console.log("Is a macht!");
         console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
+    } else if (randomOption === options[0] && userOption === options[randomOption + 1]) {
+        console.log("Computer wins!");
+        pointsComputer++;
+        console.log(`Computer: ${pointsComputer}\nPlayer: ${pointsUser}`)
         
 
     } else {
-        console.log("Player win!");
+        console.log("Player wins!");
         pointsUser++;;
         console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
-        
+        userOption;
 
     }
 }
-console.log(selectedOptionByUser);
+
 chooseWinner();
 
 
