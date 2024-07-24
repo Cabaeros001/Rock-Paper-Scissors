@@ -1,18 +1,32 @@
-const options = ["Paper", "Rock", "Scissors"]
+const options = ["Paper", "Rock", "Scissors", "Paper"]
 let pointsComputer = 0;
 let pointsUser = 0;
 
+let randomOption = options[Math.floor(Math.random()*3)];
+console.log("Computer has " + randomOption + " selected.");
 
-function computerOption() {
-    let randomOption = options[Math.floor(Math.random()*3)];
-    console.log(randomOption);
+let selectedOption = options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
+
+
+function chooseWinner() {
+    if(randomOption === selectedOption) {
+        console.log("Is a macht!")
+    } else if (randomOption === options[0] && userOption === options[randomOption + 1]) {
+        console.log("Computer Win!");
+        pointsComputer++;
+        console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
+        
+
+    } else {
+        console.log("Player win!");
+        pointsUser++;;
+        console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
+        
+
+    }
 }
-function userOption() {
-    let selectedOption = options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
-    console.log(selectedOption);
-}
-userOption();
-computerOption();
+console.log(selectedOptionByUser);
+chooseWinner();
 
 
 
