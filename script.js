@@ -25,7 +25,7 @@ function playRound(humanChoice, computerChoice) {
     console.log(computerSelection);
     console.log(humanSelection);
     if (computerChoice === humanChoice) {
-        console.log("Is a macht!");
+        // console.log(`Is a tie! both had selected ${computerSelection}`);
         console.log(`Computer: ${computerScore} \n Player: ${humanScore}`);
 
     } else if (computerChoice === options[0] && humanChoice === options[getComputerChoice + 1]) {
@@ -41,7 +41,7 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-const round = playRound(humanSelection, computerSelection);
+// const round = playRound(humanSelection, computerSelection);
 
 function playGame() {
     playRound();
@@ -58,8 +58,8 @@ function playGame() {
 
 
 
-
-playGame();
+playRound();
+// playGame();
 
 
 
