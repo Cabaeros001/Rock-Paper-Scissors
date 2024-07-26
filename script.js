@@ -1,36 +1,67 @@
-const options = ["Paper", "Rock", "Scissors", "Paper"]
-let pointsComputer = 0;
-let pointsUser = 0;
+const options = ["paper", "rock", "scissors", "paper"]
+let humanScore = 0;
+let computerScore = 0;
+let roundPhase = 0;
 
-function() {let randomOption = options[Math.floor(Math.random()*3)];
-console.log("Computer has " + randomOption + " selected.");}
 
-function PlayerOption() {
-let userOption = options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
-console.log("Player has " + userOption + " selected.");
+
+function getComputerChoice() {
+    return options[Math.floor(Math.random() * 3)];
+
+}
+
+function getHumanChoice() {
+    return options[parseInt(prompt("Choose your option: \n 0 = Paper.\n 1 = Rock. \n 2 = Scissors."))];
 }
 
 
-function chooseWinner() {
-    if(randomOption === userOption) {
-        console.log("Is a macht!");
-        console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
-    } else if (randomOption === options[0] && userOption === options[randomOption + 1]) {
-        console.log("Computer wins!");
-        pointsComputer++;
-        console.log(`Computer: ${pointsComputer}\nPlayer: ${pointsUser}`)
-        
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
 
+
+function playRound(humanChoice, computerChoice) {
+    getComputerChoice();
+    getHumanChoice();
+    console.log(computerSelection);
+    console.log(humanSelection);
+    if (computerChoice === humanChoice) {
+        console.log("Is a macht!");
+        console.log(`Computer: ${computerScore} \n Player: ${humanScore}`);
+
+    } else if (computerChoice === options[0] && humanChoice === options[getComputerChoice + 1]) {
+        console.log("Computer wins!");
+        computerScore++;
+        console.log(`Computer: ${computerScore}\nPlayer: ${humanScore}`);
+   
     } else {
         console.log("Player wins!");
-        pointsUser++;;
-        console.log(`Computer: ${pointsComputer} \n Player: ${pointsUser}`)
-        userOption;
-
+        humanScore++;;
+        console.log(`Computer: ${computerScore} \n Player: ${humanScore}`);
+       
     }
 }
 
-chooseWinner();
+const round = playRound(humanSelection, computerSelection);
+
+function playGame() {
+    playRound();
+    if (roundPhase >= 5) {
+        if (computerScore > humanScore) {
+            console.log("Computer has won the match");
+        } else {
+            console.log("Congratulations, You won the match!! ");
+        }
+    } else {
+        playRound();
+    }
+}
+
+
+
+
+playGame();
+
+
 
 
 
